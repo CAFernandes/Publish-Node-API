@@ -1,0 +1,29 @@
+{
+  "name": "publish-node-api",
+  "version": "1.0.0",
+  "description": "Back End para Publish Node Front",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaioAFernandes/Publish-Node-API.git"
+  },
+  "keywords": [
+    "NodeJs",
+    "API"
+  ],
+  "author": "Caio Alberto Fernandes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CaioAFernandes/Publish-Node-API/issues"
+  },
+  "homepage": "https://github.com/CaioAFernandes/Publish-Node-API#readme",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
