@@ -7,8 +7,10 @@ routes.get('/publish', ApiController.getList)
 
 routes.get('/publish/:id', ApiController.getNew)
 
-routes.put('/publish/', ApiController.insertNew)
+routes.post('/publish/', ApiController.insertNew)
 
-routes.patch('/publish/:id', ApiController.updateNew)
+routes.put('/publish/:id', ApiController.updateNew)
+
+routes.delete('/publish/:id', ApiController.deleteNew)
 
 module.exports = routes

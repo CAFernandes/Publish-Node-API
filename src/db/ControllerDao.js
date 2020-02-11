@@ -44,14 +44,23 @@ class ControllerDao {
     await this.conn.query('SELECT * FROM news ORDER BY id DESC LIMIT 5', callback)
   }
   
-    /**
-   * UpdateNews retorna as últimas 5 publicação pra tela inicial
+  /**
+   * UpdateNews atualiza uma publicação
    * @param {json} publicacao json a realizar update do formulário
    * @param {int} id para realização do update
    * @param {function} callback o que executar ao fim da query
    */
   async updateNews(publicacao, id, callback){
     await this.conn.query(`UPDATE news SET ? WHERE id = ${id}`, publicacao, callback)
+  }
+  
+  /**
+   * DeleteNews remove uma publicação do banco
+   * @param {int} id para realização do update
+   * @param {function} callback o que executar ao fim da query
+   */
+  async DeleteNews(id, callback){
+    await this.conn.query(`DELETE FROM news WHERE id = ${id}`, callback)
   }
 }
 
