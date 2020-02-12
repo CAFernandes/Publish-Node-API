@@ -40,7 +40,7 @@ class ControllerDao {
    * GetLastNews retorna as últimas 5 publicação pra tela inicial
    * @param {function} callback o que executar ao fim da query
    */
-  async getLastNews(callback){
+  async getLastPublish(callback){
     await this.conn.query('SELECT * FROM news ORDER BY id DESC LIMIT 5', callback)
   }
   
@@ -60,7 +60,7 @@ class ControllerDao {
    * @param {function} callback o que executar ao fim da query
    */
   async DeleteNews(id, callback){
-    await this.conn.query(`DELETE FROM news WHERE id = ${id}`, callback)
+    this.conn.query(`DELETE FROM news WHERE id = ${id}`, callback)
   }
 }
 

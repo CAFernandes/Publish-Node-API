@@ -5,6 +5,8 @@ const ApiController = require('../controller/ApiController')
 
 routes.get('/publish', ApiController.getList)
 
+routes.get('/publish/index', ApiController.getLastPublish)
+
 routes.get('/publish/:id', ApiController.getNew)
 
 routes.post('/publish/', ApiController.insertNew)

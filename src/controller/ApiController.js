@@ -37,6 +37,13 @@ module.exports = {
       if (error) res.json({ error })
       else res.json({ results })
     })
+  },
+
+  async getLastPublish (req, res) {
+    conn.getLastPublish((error, results, fields) => {
+      if (error) res.json({ error })
+      else res.json({ results })
+    })
   }
 }
 
