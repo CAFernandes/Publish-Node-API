@@ -3,10 +3,10 @@ const { createConnection } = require('mysql');
 class ControllerDao {
   constructor(){
     this.conn = createConnection({
-      host: 'localhost',
-      user: 'caio',
+      host: '127.0.0.1',
+      user: 'root',
       password: '1234',
-      database: 'noticiais'
+      database: 'publish'
     });
   }
   
@@ -15,7 +15,8 @@ class ControllerDao {
   * @param {id}       id da publicacao que deverá ser retornada
   * @param {function} callback o que executar ao fim da query
   */
-  async getNew(id, callback){
+  async getNew(id, callback)
+  {
     await this.conn.query(`SELECT * FROM news WHERE id = ?`, id, callback)
   }
 
@@ -23,7 +24,8 @@ class ControllerDao {
   * GetPublicacaos retorna um json com todas as publicações do banco
   * @param {function} callback o que executar ao fim da query
   */
-  async getNews(callback){
+  async getNews(callback)
+  {
     await this.conn.query(`SELECT * FROM news`, callback)
   }
 
@@ -32,7 +34,8 @@ class ControllerDao {
    * @param {json}     publicacao {titulo, conteudo} da publicação
    * @param {function} callback o que executar ao fim da query
    */
-  async insertNew(publicacao, callback){
+  async insertNew(publicacao, callback)
+  {
     await this.conn.query(`INSERT INTO news SET ?`, publicacao, callback)
   }
 
@@ -40,8 +43,9 @@ class ControllerDao {
    * GetLastNews retorna as últimas 5 publicação pra tela inicial
    * @param {function} callback o que executar ao fim da query
    */
-  async getLastPublish(callback){
-    await this.conn.query('SELECT * FROM news ORDER BY id DESC LIMIT 5', callback)
+  async getLastPublish(callback)
+  {
+    await this.conn.query('SELECT * FROM news ORDER BY id DESC LIMIT 7', callback)
   }
   
   /**
@@ -50,7 +54,8 @@ class ControllerDao {
    * @param {int} id para realização do update
    * @param {function} callback o que executar ao fim da query
    */
-  async updateNews(publicacao, id, callback){
+  async updateNews(publicacao, id, callback)
+  {
     await this.conn.query(`UPDATE news SET ? WHERE id = ${id}`, publicacao, callback)
   }
   
@@ -59,8 +64,14 @@ class ControllerDao {
    * @param {int} id para realização do update
    * @param {function} callback o que executar ao fim da query
    */
-  async DeleteNews(id, callback){
+  async deleteNews(id, callback)
+  {
     this.conn.query(`DELETE FROM news WHERE id = ${id}`, callback)
+  }
+
+  async createTable(callback)
+  {
+
   }
 }
 

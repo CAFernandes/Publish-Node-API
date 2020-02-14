@@ -18,29 +18,29 @@ module.exports = {
     })
   },
 
-  async insertNew(req, res) {
-    conn.insertNew(req.body, (error, results, fields) => {
+  async getLastPublish (req, res) {
+    conn.getLastPublish((error, results, fields) => {
       if (error) res.json({ error })
       else res.json({ results })
+    })
+  },
+
+  async insertNew(req, res) {
+    conn.insertNew(req.body, (error, results, fields) => {
+      if (error) res.json({ status: false, error })
+      else res.json({ status: true,  results })
     })
   },
 
   async updateNew(req, res){
     conn.updateNews(req.body, req.params.id, (error, results, fields) => {
-      if (error) res.json({ error })
-      else res.json({ results })
+      if (error) res.json({ status: false, error })
+      else res.json({ status: true, results })
     })
   },
   
   async deleteNew(req, res){
     conn.deleteNew(req.body, req.params.id, (error, results, fields) => {
-      if (error) res.json({ error })
-      else res.json({ results })
-    })
-  },
-
-  async getLastPublish (req, res) {
-    conn.getLastPublish((error, results, fields) => {
       if (error) res.json({ error })
       else res.json({ results })
     })
