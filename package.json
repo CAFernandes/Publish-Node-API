@@ -23,7 +23,7 @@
   "homepage": "https://github.com/CaioAFernandes/Publish-Node-API#readme",
   "dependencies": {
     "consign": "^0.1.6",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mysql": "^2.18.1"
   }
 }
